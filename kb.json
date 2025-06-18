@@ -1,0 +1,287 @@
+[
+    {
+      "id": "aa3c3405-0b10-4714-938b-c88c5fcf15a7",
+      "user_id": "758cf4aa-cfa0-4cbc-adeb-bb61dbf5d4f5",
+      "name": "test rag",
+      "description": "测试RAGEval",
+      "data": {
+        "file_ids": [
+          "9a536e51-0a29-4f9d-bc84-4624c5f934d3",
+          "87727453-c919-49e3-a779-3bd9834be8b4",
+          "7dc2f6ab-58db-4ec4-8558-c9279587ab06",
+          "1a64ce21-2c74-4d8f-a594-e6a039d40b73",
+          "497bc636-1d7b-494a-b183-44ec4e3c2121",
+          "1cba4043-9a0f-4f22-afdd-213fe0827e11",
+          "f75775b3-dff3-40cb-aa79-ca5649b5fb72",
+          "8756b2ad-11f4-4845-a661-0c27517beda4",
+          "3c583990-26f2-4558-8afc-3d1fd8bdda3a",
+          "5f53f7ba-edce-4f22-8df2-28b66176dae1",
+          "5beed4f8-b2a7-443a-938f-34519c8fcf85",
+          "a5229bb9-9617-4a04-b359-a8082f1f9204",
+          "78370867-9df1-4a8b-bb3a-429f213ce244",
+          "dda347df-2091-4469-bdcb-d6d87583f4b7",
+          "d5b3c457-0de9-46db-a9f3-64aa54c79372",
+          "6eac1f6b-9d0b-4fb9-bb5e-8dbc2db442f7",
+          "9590f600-010f-4554-a176-f845fb00665e",
+          "e6d52db0-eaee-4ff5-9a61-17ca800feee7",
+          "51bce008-4049-478c-b46b-c5bac55d4ec3",
+          "a8599203-2df5-4a22-bd57-9a9b047525d8"
+        ]
+      },
+      "meta": null,
+      "access_control": null,
+      "created_at": 1749623224,
+      "updated_at": 1749623299,
+      "user": {
+        "id": "758cf4aa-cfa0-4cbc-adeb-bb61dbf5d4f5",
+        "name": "admin",
+        "email": "admin@chitu.ai",
+        "role": "admin",
+        "profile_image_url": "/user.png"
+      },
+      "files": [
+        {
+          "id": "a8599203-2df5-4a22-bd57-9a9b047525d8",
+          "meta": {
+            "name": "公司年报_娱乐_0.txt",
+            "content_type": "text/plain",
+            "size": 10080,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623299,
+          "updated_at": 1749623299
+        },
+        {
+          "id": "51bce008-4049-478c-b46b-c5bac55d4ec3",
+          "meta": {
+            "name": "公司年报_消费品_0.txt",
+            "content_type": "text/plain",
+            "size": 15512,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623297,
+          "updated_at": 1749623297
+        },
+        {
+          "id": "e6d52db0-eaee-4ff5-9a61-17ca800feee7",
+          "meta": {
+            "name": "公司年报_零售_0.txt",
+            "content_type": "text/plain",
+            "size": 10156,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623294,
+          "updated_at": 1749623294
+        },
+        {
+          "id": "9590f600-010f-4554-a176-f845fb00665e",
+          "meta": {
+            "name": "公司年报_媒体_0.txt",
+            "content_type": "text/plain",
+            "size": 12693,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623292,
+          "updated_at": 1749623292
+        },
+        {
+          "id": "6eac1f6b-9d0b-4fb9-bb5e-8dbc2db442f7",
+          "meta": {
+            "name": "公司年报_航空_0.txt",
+            "content_type": "text/plain",
+            "size": 10793,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623290,
+          "updated_at": 1749623290
+        },
+        {
+          "id": "d5b3c457-0de9-46db-a9f3-64aa54c79372",
+          "meta": {
+            "name": "公司年报_社交_0.txt",
+            "content_type": "text/plain",
+            "size": 10130,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623289,
+          "updated_at": 1749623289
+        },
+        {
+          "id": "dda347df-2091-4469-bdcb-d6d87583f4b7",
+          "meta": {
+            "name": "公司年报_农业_0.txt",
+            "content_type": "text/plain",
+            "size": 10381,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623287,
+          "updated_at": 1749623287
+        },
+        {
+          "id": "78370867-9df1-4a8b-bb3a-429f213ce244",
+          "meta": {
+            "name": "公司年报_旅游_0.txt",
+            "content_type": "text/plain",
+            "size": 10395,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623285,
+          "updated_at": 1749623285
+        },
+        {
+          "id": "a5229bb9-9617-4a04-b359-a8082f1f9204",
+          "meta": {
+            "name": "公司年报_医疗_0.txt",
+            "content_type": "text/plain",
+            "size": 13632,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623283,
+          "updated_at": 1749623283
+        },
+        {
+          "id": "5beed4f8-b2a7-443a-938f-34519c8fcf85",
+          "meta": {
+            "name": "公司年报_IT_0.txt",
+            "content_type": "text/plain",
+            "size": 13218,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623281,
+          "updated_at": 1749623281
+        },
+        {
+          "id": "5f53f7ba-edce-4f22-8df2-28b66176dae1",
+          "meta": {
+            "name": "公司年报_政府_0.txt",
+            "content_type": "text/plain",
+            "size": 12594,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623280,
+          "updated_at": 1749623280
+        },
+        {
+          "id": "3c583990-26f2-4558-8afc-3d1fd8bdda3a",
+          "meta": {
+            "name": "公司年报_环保_0.txt",
+            "content_type": "text/plain",
+            "size": 11846,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623279,
+          "updated_at": 1749623279
+        },
+        {
+          "id": "8756b2ad-11f4-4845-a661-0c27517beda4",
+          "meta": {
+            "name": "公司年报_研发_0.txt",
+            "content_type": "text/plain",
+            "size": 12309,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623277,
+          "updated_at": 1749623277
+        },
+        {
+          "id": "f75775b3-dff3-40cb-aa79-ca5649b5fb72",
+          "meta": {
+            "name": "公司年报_能源_0.txt",
+            "content_type": "text/plain",
+            "size": 10154,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623277,
+          "updated_at": 1749623277
+        },
+        {
+          "id": "1cba4043-9a0f-4f22-afdd-213fe0827e11",
+          "meta": {
+            "name": "公司年报_建筑_0.txt",
+            "content_type": "text/plain",
+            "size": 10895,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623276,
+          "updated_at": 1749623276
+        },
+        {
+          "id": "497bc636-1d7b-494a-b183-44ec4e3c2121",
+          "meta": {
+            "name": "公司年报_家政_0.txt",
+            "content_type": "text/plain",
+            "size": 11114,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623275,
+          "updated_at": 1749623275
+        },
+        {
+          "id": "1a64ce21-2c74-4d8f-a594-e6a039d40b73",
+          "meta": {
+            "name": "公司年报_金融_0.txt",
+            "content_type": "text/plain",
+            "size": 10462,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623274,
+          "updated_at": 1749623274
+        },
+        {
+          "id": "7dc2f6ab-58db-4ec4-8558-c9279587ab06",
+          "meta": {
+            "name": "公司年报_教育_0.txt",
+            "content_type": "text/plain",
+            "size": 12467,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623273,
+          "updated_at": 1749623273
+        },
+        {
+          "id": "87727453-c919-49e3-a779-3bd9834be8b4",
+          "meta": {
+            "name": "公司年报_文化_0.txt",
+            "content_type": "text/plain",
+            "size": 14537,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623272,
+          "updated_at": 1749623272
+        },
+        {
+          "id": "9a536e51-0a29-4f9d-bc84-4624c5f934d3",
+          "meta": {
+            "name": "公司年报_制造_0.txt",
+            "content_type": "text/plain",
+            "size": 13296,
+            "data": {},
+            "collection_name": "aa3c3405-0b10-4714-938b-c88c5fcf15a7"
+          },
+          "created_at": 1749623271,
+          "updated_at": 1749623271
+        }
+      ],
+      "type": "collection",
+      "status": "processed"
+    }
+  ]

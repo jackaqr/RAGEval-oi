@@ -3,17 +3,22 @@
 # Parameters
 NUM_WORKERS=5 # the number of workers to use for parallel processing for evaluation
 LANGUAGE="auto" # the language of the input data, en or zh
-INPUT_BASE_URL="./data/"
-USE_MODEL="gpt-4o"
-OUTPUT_BASE_URL="./result/intermediate_result/"
-export OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
-export BASE_URL="" # if none, set to empty string
+INPUT_BASE_URL="/home/liuxz/RAG-OI-benchmark/output"
+USE_MODEL="qwen2.5-7b-instruct-1m"
+# OUTPUT_BASE_URL="/home/liuxz/RAGEval/rageval/evaluation/result/intermediate_result"
+OUTPUT_BASE_URL="/home/liuxz/RAG-OI-benchmark/eval_result/with_prediction2/internal_result"
+
+export OPENAI_API_KEY="sk-7a8ce4510f6e413b982cd7b6c73609a4"
+export BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1" # if none, set to empty string
 # Input files and output file list 
-INPUT_FILES=("example_finance_en_gpt-4o.jsonl") # file name of the input data
+INPUT_FILES=("/with_prediction2_zh.jsonl") # file name of the input data
+# INPUT_FILES=("/example_finance_en_gpt-4o.jsonl") # file name of the input data
+
+
 KEYPOINT_VERSION="v2" # default version of the paper
 
 # List of metrics to process
-METRICS=("keypoint_metrics") #("rouge-l" "precision" "recall" "eir" "keypoint_metrics")
+METRICS=("rouge-l" "precision" "recall" "eir")   # ("keypoints_metrics") 需要调用LLM，原代码只支持OpenAI的接口，如 gpt-4o
 
 # Function: Get line count of a file
 get_line_count() {
@@ -79,4 +84,4 @@ echo "All files and metrics processed."
 
 python process_intermediate.py
 
-echo "Intermediate results processed. Results are stored in ./result/final_result.jsonl"
+echo "Intermediate results processed. Results are stored in /home/liuxz/RAG-OI-benchmark/eval_result/with_prediction2"

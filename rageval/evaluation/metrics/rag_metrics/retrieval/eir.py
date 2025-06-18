@@ -62,8 +62,11 @@ class EIR:
         new_retrieves = []
         new_ground_truths = []
 
+
         for retrieve in retrieves:
             if isinstance(retrieve, list):
+                if not retrieve:
+                    continue
                 retrieve = retrieve[0]
             # Check if the first character is '('
             if retrieve:
@@ -76,6 +79,7 @@ class EIR:
                     if end_pos != -1:
                         retrieve = retrieve[end_pos + 1:]
                 elif retrieve[0] == '(':
+
                     print('Deleting Metadata in english!!!!')
                     # delete the metadata part for calculating the EIR
                     # Find the position of the first ')'
@@ -92,5 +96,4 @@ class EIR:
 
         if not retrieves or not ground_truths:
             return 0.0
-
         return self.calculate_eir(new_retrieves, new_ground_truths, language=language)

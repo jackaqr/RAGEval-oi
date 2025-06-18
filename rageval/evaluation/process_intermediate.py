@@ -33,9 +33,9 @@ def process_folder(folder_path: str, output_file: str, metric_list: List[str]):
         json.dump(results, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    folder_path = './result/intermediate_result'
-    output_file = './result/final_result.json'
-    metric_list = ['EIR', 'Precision', 'Recall', 'ROUGELScore', "completeness", "hallucination", "irrelevance"]
+    folder_path = '/home/liuxz/RAG-OI-benchmark/eval_result/with_prediction2/internal_result'
+    output_file = '/home/liuxz/RAG-OI-benchmark/eval_result/with_prediction2/final_result.json'
+    metric_list = ['EIR', 'Precision', 'Recall', 'ROUGELScore']  # , "completeness", "hallucination", "irrelevance"]
     
     process_folder(folder_path, output_file, metric_list)
     print(f"Results saved to {output_file}")
