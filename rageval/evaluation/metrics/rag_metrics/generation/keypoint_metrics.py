@@ -531,6 +531,9 @@ class KEYPOINT_METRICS:
                 api_key= self.openai_api_key,
             )
         else:
+            # print("base_url:", self.base_url)
+            # print("openai_api_key:", self.openai_api_key)
+            # print("-------------------------------")
             self.client = OpenAI(
                 api_key= self.openai_api_key,
                 base_url= self.base_url
@@ -645,9 +648,50 @@ class KEYPOINT_METRICS:
                 "wrong_ids": wrong_ids,
                 "responses": responses_text
             }
+        elif self.version == 'v3':
+            # New v3 behavior: multiple keypoints evaluation with individual analysis
+            while True:
+                try:
+                    response = self._handle_key_point_v3(question, prediction, key_points, language)
+                    if response is None:
+                        return {
+                            "completeness": -1,
+                            "hallucination": -1,
+                            "irrelevance": -1,
+                            "relevant_ids": [],
+                            "irrelevant_ids": [],
+                            "wrong_ids": [],
+                            "responses": 'No response'
+                        }
+                    break
+                except Exception as e:
+                    print(f"Error processing key points in v3: {str(e)}")
+                    time.sleep(3)
+       
+            parsed_response = self._parse_model_response_v2(response, len(key_points))
+            relevant_ids = parsed_response.get("relevant_ids", [])
+            irrelevant_ids = parsed_response.get("irrelevant_ids", [])
+            wrong_ids = parsed_response.get("wrong_ids", [])
+            # Count the occurrences of each classification
+            relevant_count = len(relevant_ids)
+            irrelevant_count = len(irrelevant_ids)
+            wrong_count = len(wrong_ids)
+            total = relevant_count + irrelevant_count + wrong_count
+            completeness_ratio = relevant_count / total if total > 0 else 0
+            irrelevance_ratio = irrelevant_count / total if total > 0 else 0
+            hallu_ratio = wrong_count / total if total > 0 else 0
 
-        else:
-            raise ValueError("Unsupported version. Supported versions are 'v0' and 'v1'.")
+            print(f"v3 - hallu_ratio: {hallu_ratio}, completeness: {completeness_ratio}, irrelevance: {irrelevance_ratio}")
+            responses_text = response
+            return {
+                "completeness": completeness_ratio,
+                "hallucination": hallu_ratio,
+                "irrelevance": irrelevance_ratio,
+                "relevant_ids": relevant_ids,
+                "irrelevant_ids": irrelevant_ids,
+                "wrong_ids": wrong_ids,
+                "responses": responses_text
+            }
 
     def _handle_key_point(self, question, prediction, key_point, language):
         """
@@ -720,6 +764,36 @@ class KEYPOINT_METRICS:
             # Implement alternative handling if not using OpenAI
             raise NotImplementedError("Only OpenAI API is supported currently.")
 
+    def _handle_key_point_v3(self, question, prediction, key_points, language):
+        """
+        Generate prompt for multiple key points and call the model for v3.
+        """
+        prompt = self._create_prompt_v2(question, prediction, key_points, language)
+        if self.use_openai:
+            messages = [{"role": "user", "content": prompt}]
+            client = OpenAI(
+                api_key= "sk-7a8ce4510f6e413b982cd7b6c73609a4",
+                base_url= "https://dashscope.aliyuncs.com/compatible-mode/v1"
+            )
+            response = client.chat.completions.create(
+                messages=messages,
+                # model=self.model,
+                model="qwen2.5-7b-instruct-1m",
+                temperature=0.0,
+                top_p=0.9,
+                # n=1,
+                stream=False,
+                # frequency_penalty=0.8,
+                presence_penalty=0.9,
+                # logit_bias={}
+            )
+            # response_text = response['choices'][0]['message']['content']
+            response_text = response.choices[0].message.content
+
+            return response_text
+        else:
+            # Implement alternative handling if not using OpenAI
+            raise NotImplementedError("Only OpenAI API is supported currently.")        
 
     def _parse_key_points(self, key_points_str):
         """
@@ -786,6 +860,16 @@ class KEYPOINT_METRICS:
             )
         return prompt
 
+    # def _create_prompt_v3(self, question, prediction, key_points, language):
+    #     """
+    #     Create prompt for version v3.
+    #     """
+    #     if language == "zh":
+    #         prompt = KEY_PROMPT_ZH_V3.format(question=question, prediction=prediction, key_points=self._format_key_points_v3(key_points))
+    #     else:
+    #         prompt = KEY_PROMPT_EN_V3.format(question=question, prediction=prediction, key_points=self._format_key_points_v3(key_points))
+    #     return prompt
+    
     def _format_key_points_v1(self, key_points: List[str]) -> str:
         """
         Format key points for inclusion in the prompt for v1.
@@ -822,6 +906,12 @@ class KEYPOINT_METRICS:
             else:
                 formatted_kps += f"{idx}. {kp.strip()}\n"
         return formatted_kps.strip()
+    
+    # def _format_key_points_v3(self, key_points: List[str]) -> str:
+    #     """
+    #     Format key points for inclusion in the prompt for v3.
+    #     """
+    #     return "\n".join(key_points)
 
     def _parse_model_response(self, model_response):
         """
@@ -886,7 +976,12 @@ class KEYPOINT_METRICS:
         except Exception as e:
             raise ValueError(f"Failed to parse v2 model response: {str(e)}")
     
-
+    # def _parse_model_response_v3(self, model_response: str, max_id: int) -> Dict[str, List[int]]:
+    #     """
+    #     Parse model response for version v3 expecting multiple classifications.
+    #     """
+    #     return model_response
+    
     def _calculate_ratio(self, model_responses) -> float:
 
         hulla_count = sum("Wrong" in response for response in model_responses)
