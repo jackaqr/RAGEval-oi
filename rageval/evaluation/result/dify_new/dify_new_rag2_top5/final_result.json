@@ -1,0 +1,19 @@
+{
+  "dify_new_rag_2_eir_intermediate.jsonl": {
+    "EIR": 0.002159654553097176
+  },
+  "dify_new_rag_2_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.26937756857059125
+  },
+  "dify_new_rag_2_precision_intermediate.jsonl": {
+    "Precision": 0.004000000000000001
+  },
+  "dify_new_rag_2_keypoint_metrics_intermediate.jsonl": {
+    "completeness": 0.3401666666666667,
+    "hallucination": 0.1857936507936508,
+    "irrelevance": 0.44070634920634927
+  },
+  "dify_new_rag_2_recall_intermediate.jsonl": {
+    "Recall": 0.004166666666666667
+  }
+}

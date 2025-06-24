@@ -1,0 +1,22 @@
+{
+  "with_p3_en_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.15440912066656484
+  },
+  "with_p3_en_recall_intermediate.jsonl": {
+    "Recall": 0.46292312105565114
+  },
+  "with_p3_en_precision_intermediate.jsonl": {
+    "Precision": 0.14309741070017462
+  },
+  "reordered_with_p3_en_recall_intermediate.jsonl": {
+    "Recall": 0.46292312105565114
+  },
+  "with_p3_en_keypoint_metrics_intermediate.jsonl": {
+    "completeness": 0.6197456492637217,
+    "hallucination": 0.163855421686747,
+    "irrelevance": 0.21037483266398926
+  },
+  "with_p3_en_eir_intermediate.jsonl": {
+    "EIR": 0.009271195377185036
+  }
+}

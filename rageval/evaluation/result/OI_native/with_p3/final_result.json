@@ -1,0 +1,19 @@
+{
+  "with_prediction3_zh_precision_intermediate.jsonl": {
+    "Precision": 0.037148594377510044
+  },
+  "with_prediction3_zh_recall_intermediate.jsonl": {
+    "Recall": 0.412320711417097
+  },
+  "with_prediction3_zh_eir_intermediate.jsonl": {
+    "EIR": 0.008734305766339084
+  },
+  "with_prediction3_zh_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.15230530863483882
+  },
+  "with_prediction3_zh_keypoint_metrics_intermediate.jsonl": {
+    "completeness": 0.6292598967297762,
+    "hallucination": 0.155070281124498,
+    "irrelevance": 0.20964572576018356
+  }
+}

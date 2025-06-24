@@ -1,0 +1,22 @@
+{
+  "with_p3_2_zh_eir_intermediate.jsonl": {
+    "EIR": 0.008775731396360521
+  },
+  "with_p3_2_zh_recall_intermediate.jsonl": {
+    "Recall": 0.4148307515777396
+  },
+  "with_p3_2_zh_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.15230530863483882
+  },
+  "reordered_with_p3_2_zh_precision_intermediate.jsonl": {
+    "Precision": 0.018072289156626505
+  },
+  "with_p3_2_zh_precision_intermediate.jsonl": {
+    "Precision": 0.018072289156626505
+  },
+  "with_p3_2_zh_keypoint_metrics_intermediate.jsonl": {
+    "completeness": 0.6435742971887549,
+    "hallucination": 0.13711512717536814,
+    "irrelevance": 0.21931057563587686
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "dify_rag_result_en_recall_intermediate.jsonl": {
+    "Recall": 0.0
+  },
+  "dify_rag_result_en_precision_intermediate.jsonl": {
+    "Precision": 0.0
+  },
+  "dify_rag_result_en_eir_intermediate.jsonl": {
+    "EIR": 0.0
+  },
+  "dify_rag_result_en_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.281205538105046
+  }
+}

@@ -21,23 +21,18 @@ def split_sentences(text: str, language: str) -> List[str]:
     sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
     return sentences
 
+
 def exist_match(query_text: Union[List[str], str], reference_texts: List[str], language="zh") -> int:
     # Split the ground_truth into sentences
     if type(query_text) == list:
         query_text = " ".join(query_text)
     q_sentences = split_sentences(query_text, language)
-    # save q_sentences to test_precision.json
-    with open("/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/metrics/rag_metrics/retrieval/test_precision/q_sentences.json", "w") as f:
-        json.dump(q_sentences, f)
-    # # save reference_texts to test_precision.json
-    with open("/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/metrics/rag_metrics/retrieval/test_precision/reference_texts.json", "w") as f:
-        json.dump(reference_texts, f)   
     
     # Check if all sentence from the query is in the reference list
-    for r in reference_texts:
+    for q in q_sentences:
         match = False
-        for q in q_sentences:
-            if r in q:
+        for r in reference_texts:
+            if q in r:
                 match = True
                 break
         if not match:
@@ -45,9 +40,17 @@ def exist_match(query_text: Union[List[str], str], reference_texts: List[str], l
     
     return 1
 
+
+
 with open("/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/metrics/rag_metrics/retrieval/test_precision/test.json", "r") as f:
     data = json.load(f)
 
 # print(data)
+retrieves = [r for r in data["prediction"].get("references", [])] 
 
-print(exist_match(data["ground_truth"]["references"], data["prediction"]["references"]))
+match_count = sum(
+                exist_match(groundtruth, retrieves) for groundtruth in data["ground_truth"]["references"]
+            )
+print(match_count)
+print(len(retrieves))
+print(match_count/len(retrieves))

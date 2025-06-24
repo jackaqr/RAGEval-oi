@@ -1,0 +1,19 @@
+{
+  "with_p2_en_eir_intermediate.jsonl": {
+    "EIR": 0.0021304409425516443
+  },
+  "with_p2_en_keypoint_metrics_intermediate.jsonl": {
+    "completeness": 0.42392904953145905,
+    "hallucination": 0.2289491298527443,
+    "irrelevance": 0.3410977242302544
+  },
+  "with_p2_en_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.11030636221840424
+  },
+  "with_p2_en_precision_intermediate.jsonl": {
+    "Precision": 0.03365676022885173
+  },
+  "with_p2_en_recall_intermediate.jsonl": {
+    "Recall": 0.26046328169822147
+  }
+}

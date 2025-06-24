@@ -1,0 +1,19 @@
+{
+  "with_p5_en_recall_intermediate.jsonl": {
+    "Recall": 0.6003534226190476
+  },
+  "with_p5_en_eir_intermediate.jsonl": {
+    "EIR": 0.022826055106102746
+  },
+  "with_p5_en_rouge-l_intermediate.jsonl": {
+    "ROUGELScore": 0.17671689148855352
+  },
+  "with_p5_en_keypoint_metrics_intermediate.jsonl": {
+    "completeness": 0.7956194196428572,
+    "hallucination": 0.07903645833333334,
+    "irrelevance": 0.12534412202380954
+  },
+  "with_p5_en_precision_intermediate.jsonl": {
+    "Precision": 0.3521949404761905
+  }
+}

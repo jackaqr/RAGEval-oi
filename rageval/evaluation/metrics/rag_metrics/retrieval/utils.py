@@ -36,3 +36,21 @@ def exist_match(query_text: Union[List[str], str], reference_texts: List[str], l
             return 0
     
     return 1
+
+
+def exist_match_p(query_text: Union[List[str], str], reference_texts: List[str], language="zh") -> int:
+    # Split the ground_truth into sentences
+    if type(query_text) == list:
+        query_text = " ".join(query_text)
+    q_sentences = split_sentences(query_text, language)
+    
+    # Check if all sentence from the query is in the reference list
+    # Check if all sentence from the query is in the reference list
+    for q in q_sentences:
+        match = False
+        if q in reference_texts:
+            match = True
+            break
+        if not match:
+            return 0
+    return 1

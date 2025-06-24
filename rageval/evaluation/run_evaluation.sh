@@ -6,12 +6,12 @@ LANGUAGE="zh" # the language of the input data, en or zh
 INPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data"
 USE_MODEL="qwen2.5-7b-instruct-1m"
 # OUTPUT_BASE_URL="/home/liuxz/RAGEval/rageval/evaluation/result/intermediate_result"
-OUTPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/with_p2/internal_result"
+OUTPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_new/dify_new_rag2/internal_result"
 
 export OPENAI_API_KEY="sk-7a8ce4510f6e413b982cd7b6c73609a4"
 export BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1" # if none, set to empty string
 # Input files and output file list 
-INPUT_FILES=("/with_prediction2_zh.jsonl") # file name of the input data
+INPUT_FILES=("/dify_new_rag_2.jsonl") # file name of the input data
 # INPUT_FILES=("/example_finance_en_gpt-4o.jsonl") # file name of the input data
 
 KEYPOINT_VERSION="v3" # default version of the paper

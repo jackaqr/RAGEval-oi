@@ -1,4 +1,4 @@
-from .utils import exist_match
+from .utils import exist_match, exist_match_p
 
 
 class Precision:
@@ -8,9 +8,9 @@ class Precision:
         self.topk = topk
 
     def calculate_precision(self, retrieves, ground_truths, language=None) -> float:
-        retrieves = retrieves[:self.topk]
+        # retrieves = retrieves[:self.topk]
         # match_count = sum(
-        #     exist_match(retrieve, ground_truths, language=language)
+        #     exist_match_p(retrieve, ground_truths, language=language)
         #     for retrieve in retrieves
         # )
         match_count = sum(
