@@ -1,5 +1,6 @@
 import argparse
 import json
+import pathlib
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 from tqdm import tqdm
@@ -73,6 +74,7 @@ def main():
 
     args = parser.parse_args()
     evaluator_names = args.metrics
+    pathlib.Path(args.output_file).parent.mkdir(exist_ok=True, parents=True)
     process_jsonl(args.input_file, args.output_file, evaluator_names, args.num_workers, args.use_openai, args.language, args.model, args.version)
 
 if __name__ == "__main__":
