@@ -3,30 +3,29 @@ import json
 import argparse
 
 
-# 恢复句号的函数
-def recover(source: str, s: str) -> str:
-    filtered = ""
-    idx_map = []
-    for i, ch in enumerate(source):
-        if ch == "。":
+# 恢复句子中的符号
+def recover(correct_text, no_punct_text, separator="。"):
+    sentences = [s.strip() for s in correct_text.split("。") if s.strip()]
+
+    restored = []
+    pos = 0
+
+    for sentence in sentences:
+        clean_sentence = sentence.replace(separator, "")
+
+        idx = no_punct_text.find(clean_sentence, pos)
+        if idx == -1:
             continue
-        idx_map.append(i)
-        filtered += ch
-    idx = filtered.find(s)
-    if idx < 0:
-        raise Exception("not found")
-    idx = idx_map[idx]
-    origin = ""
-    j = 0
-    for i in range(idx, len(source)):
-        if source[i] == "。":
-            origin += source[i]
-            continue
-        j += 1
-        if j > len(s):
-            break
-        origin += source[i]
-    return origin
+
+        end_pos = idx + len(clean_sentence)
+        if end_pos == len(no_punct_text) or no_punct_text[end_pos] != separator:
+            restored.append(no_punct_text[pos:end_pos] + separator)
+            pos = end_pos
+        else:
+            restored.append(no_punct_text[pos : end_pos + 1])
+            pos = end_pos + 1
+
+    return "".join(restored)
 
 
 def recover_jsonl(source_folders, input_file, output_file):

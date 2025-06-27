@@ -6,7 +6,8 @@ LANGUAGE="zh" # the language of the input data, en or zh
 INPUT_BASE_URL="data"
 USE_MODEL="qwen2.5-7b-instruct-1m"
 
-PROJECT_NAME="ragflow" # 可以设置一个默认的如benchmark，或者需要就搞个项目的
+# PROJECT_NAME="ragflow" # 可以设置一个默认的如benchmark，或者需要就搞个项目的
+PROJECT_NAME="chatwiki" # 可以设置一个默认的如benchmark，或者需要就搞个项目的
 OUTPUT_BASE_URL="result/${PROJECT_NAME}/internal_result"
 
 FINAL_OUTPUT_FILE="result/${PROJECT_NAME}/final_result.json"
