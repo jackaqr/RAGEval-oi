@@ -1,5 +1,6 @@
 import json
 import os
+import argparse
 from typing import Dict, List, Any
 
 def load_jsonl(file_path: str) -> List[Dict[str, Any]]:
@@ -33,9 +34,12 @@ def process_folder(folder_path: str, output_file: str, metric_list: List[str]):
         json.dump(results, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    folder_path = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/混合k10_s0.5/internal_result'
-    output_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/混合k10_s0.5/final_result.json'
-    metric_list = ['EIR', 'Precision', 'Recall', 'ROUGELScore', "completeness", "hallucination", "irrelevance"] #, 
+    parser = argparse.ArgumentParser(description="Process intermediate result.")
+    parser.add_argument("--folder_path", help="Path to the input JSONL file")
+    parser.add_argument("--output_file", help="Path to the output JSONL file")
+    args = parser.parse_args()
+
+    metric_list = ['EIR', 'Precision', 'Recall', 'ROUGELScore', "completeness", "hallucination", "irrelevance"]
     
-    process_folder(folder_path, output_file, metric_list)
-    print(f"Results saved to {output_file}")
+    process_folder(args.folder_path, args.output_file, metric_list)
+    print(f"Results saved to {args.output_file}")
