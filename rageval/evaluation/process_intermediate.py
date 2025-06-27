@@ -33,8 +33,8 @@ def process_folder(folder_path: str, output_file: str, metric_list: List[str]):
         json.dump(results, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    folder_path = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_new/dify_new_rag2/internal_result'
-    output_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_new/dify_new_rag2/final_result.json'
+    folder_path = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/混合k10_s0.5/internal_result'
+    output_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/混合k10_s0.5/final_result.json'
     metric_list = ['EIR', 'Precision', 'Recall', 'ROUGELScore', "completeness", "hallucination", "irrelevance"] #, 
     
     process_folder(folder_path, output_file, metric_list)

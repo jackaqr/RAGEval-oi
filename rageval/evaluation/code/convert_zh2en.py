@@ -1,9 +1,9 @@
 import json
 
 # 原始 JSONL 文件路径
-input_path = "/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data/dify_rag_result4.jsonl"
+input_path = "/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data/dify_native_result/rag_result5.jsonl"
 # 修改后的输出文件路径
-output_path = "/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data/dify_rag_result4_en.jsonl"
+output_path = "/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data/dify_native_result/rag_result5_en.jsonl"
 
 with open(input_path, 'r', encoding='utf-8') as infile, open(output_path, 'w', encoding='utf-8') as outfile:
     for line in infile:

@@ -1,23 +1,23 @@
 #!/bin/bash
 
 # Parameters
-NUM_WORKERS=5 # the number of workers to use for parallel processing for evaluation
+NUM_WORKERS=25 # the number of workers to use for parallel processing for evaluation
 LANGUAGE="zh" # the language of the input data, en or zh
-INPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data"
+INPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/data/dify_native_result"
 USE_MODEL="qwen2.5-7b-instruct-1m"
 # OUTPUT_BASE_URL="/home/liuxz/RAGEval/rageval/evaluation/result/intermediate_result"
-OUTPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_new/dify_new_rag2/internal_result"
+OUTPUT_BASE_URL="/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/混合k10_s0.5/internal_result"
 
 export OPENAI_API_KEY="sk-7a8ce4510f6e413b982cd7b6c73609a4"
 export BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1" # if none, set to empty string
 # Input files and output file list 
-INPUT_FILES=("/dify_new_rag_2.jsonl") # file name of the input data
+INPUT_FILES=("/混合k10_s0.5_recovered.jsonl") # file name of the input data
 # INPUT_FILES=("/example_finance_en_gpt-4o.jsonl") # file name of the input data
 
 KEYPOINT_VERSION="v3" # default version of the paper
 
 # List of metrics to process
-METRICS=("rouge-l" "precision" "recall" "eir" "keypoint_metrics")   #  
+METRICS=( "rouge-l" "precision" "recall" "eir" "keypoint_metrics")   # 
 
 # Function: Get line count of a file
 get_line_count() {

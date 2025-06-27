@@ -64,6 +64,9 @@ class EIR:
 
 
         for retrieve in retrieves:
+            # print(retrieve)
+            if not retrieves or not ground_truths:
+                return 0.0
             if isinstance(retrieve, list):
                 if not retrieve:
                     continue
@@ -94,6 +97,5 @@ class EIR:
                 ground_truth = ground_truth[0]
             new_ground_truths.append(ground_truth)
 
-        if not retrieves or not ground_truths:
-            return 0.0
+        
         return self.calculate_eir(new_retrieves, new_ground_truths, language=language)

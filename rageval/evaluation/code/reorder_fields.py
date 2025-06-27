@@ -61,33 +61,23 @@ def filter_and_reorder_fields_simple(jsonl_file, output_file=None):
 
     with open(jsonl_file, 'r', encoding='utf-8') as infile, \
          open(output_file, 'w', encoding='utf-8') as outfile:
-
-        for line in infile:
+        # 给jsonl文件按照query中的query id 排序，排序之后再把最后一个字段放到最前面 
+        lines = infile.readlines()
+        lines.sort(key=lambda x: json.loads(x)['query']['query_id'])
+        for line in lines:
             data = json.loads(line.strip())
-
-            # 只保留 ground_truth 和 prediction 的 content 字段
-            new_data = {
-                "prediction": {"content": data["prediction"]["content"]},
-                "ground_truth": {"content": data["ground_truth"]["content"]}
-                
-            }
-
-            # 获取所有原始字段，把最后一个放到最前面
             keys = list(data.keys())
             last_key = keys[-1]
-
-            # 构建最终顺序：最后一个字段 + 新数据中的字段
             final_data = {last_key: data[last_key]}
-            final_data.update(new_data)
-
-            # 写入文件
+            final_data.update(data)
             outfile.write(json.dumps(final_data, ensure_ascii=False) + '\n')
+
 
     print(f"处理完成，结果已保存至：{output_file}")
 if __name__ == "__main__":
     # 直接在代码中定义文件路径
-    input_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_new/dify_new_rag2_top5/internal_result/dify_new_rag_2_recall_intermediate.jsonl'
-    output_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_new/dify_new_rag2_top5/internal_result/dify_new_rag_2_recall_intermediate_reordered.jsonl'
+    input_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/k10_s0.25/internal_result/k10_s0.25_recovered_precision_intermediate.jsonl'
+    output_file = '/Users/liuxuanzi/Desktop/RAG Benchmark/RAGEval/rageval/evaluation/result/dify_native/k10_s0.25/internal_result/k10_s0.25_recovered_precision_intermediate_reordered.jsonl'
     
     # 调用处理函数
     filter_and_reorder_fields_simple(input_file, output_file)
